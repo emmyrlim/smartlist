@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Emmy
+ * Date: 11/26/12
+ * Time: 1:22 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class Recommender {
+
+    String[] TEST_DATA = new String[10];
+    List<Item> ItemsInDatabase = new ArrayList<Item>();
+
+    public void main(){
+
+    }
+
+    private void populateTestData(){
+        TEST_DATA[0] = "ji";
+    }
+}
+
+

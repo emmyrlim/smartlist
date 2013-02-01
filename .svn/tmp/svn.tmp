@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Emmy
+ * Date: 11/26/12
+ * Time: 1:22 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class Recommender {
+
+    // data is delimited by commas, with first element containing date
+    String[] TEST_DATA = new String[10];
+    List<Item> ItemsInDatabase = new ArrayList<Item>();
+
+    public void main(){
+        populateTestData();
+    }
+
+    private void populateTestData(){
+        TEST_DATA[0] = "date:mmddyyyy,";
+        TEST_DATA[1] = "";
+        TEST_DATA[2] = "";
+        TEST_DATA[3] = "";
+        TEST_DATA[4] = "";
+        TEST_DATA[5] = "";
+        TEST_DATA[6] = "";
+        TEST_DATA[7] = "";
+        TEST_DATA[8] = "";
+        TEST_DATA[9] = "";
+    }
+}
+
+

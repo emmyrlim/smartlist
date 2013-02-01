@@ -1,0 +1,91 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: Emmy
+ * Date: 11/25/12
+ * Time: 12:04 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * An item is a food item that has been bought before.
+ it contains
+ - the avg number of days in between buying the item based on previous lists
+ - A probability dictionary of buying that item on a particular day
+ - A probability dictionary of buying that item with other items
+ - the number of times the item has appeared
+
+ To determine what food items to recommend on a given day, recommender adds each of those 4 properties for each item in a certain way (or some of them are weights), and then ranks
+ the likeliest item.
+ */
+public class Item {
+
+    private String name;
+    private DateTime lastBought;
+    private int avgPeriod;
+    private int timesBought;
+    private DateTime currentTime;
+    private HashMap<String,Integer> dayCounter;
+    private HashMap<Item, Integer> withItems;
+    private Integer chance;
+    // absolute distance from average period, reduces chance
+
+    public Item(String name){
+        this(name, DateTime.now(), DateTime.now());
+    }
+
+    public Item(String name, String currentDate, String lastDate){
+        this(name, new DateTime(currentDate), new DateTime(lastDate));
+    }
+
+    public Item(String name, DateTime currentDate, DateTime lastDate){
+        this.name = name;
+        dayCounter = new HashMap<String, Integer>();
+        withItems = new HashMap<Item, Integer>();
+        currentTime = currentDate;
+        lastBought = lastDate;
+        avgPeriod = 0;
+        timesBought = 0;
+    }
+
+    private void setTimes(){
+        int daysSince = Days.daysBetween(lastBought, currentTime).getDays();
+        lastBought = currentTime;
+        avgPeriod = daysSince+avgPeriod/timesBought;
+    }
+
+    /**
+     * The buy command is used everytime this item is bought and takes in a list of all the other items it is bought with
+     * @param otherItems
+     */
+    public void buy(List<Item> otherItems){
+        timesBought++;
+        setTimes();
+        for (Item item : otherItems){
+            Integer originalAmount = this.withItems.get(item);
+            if (originalAmount == null){
+                this.withItems.put(item, 1);
+            } else {
+                this.withItems.put(item, originalAmount+1);
+            }
+        }
+        chance = 0;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (!this.getClass().equals(obj.getClass())) return false;
+        Item obj2 = (Item) obj;
+        if (this.name.equals(obj2.name)) return true;
+        else return false;
+    }
+
+    public Integer getChance(){
+        return chance;
+    }
+}

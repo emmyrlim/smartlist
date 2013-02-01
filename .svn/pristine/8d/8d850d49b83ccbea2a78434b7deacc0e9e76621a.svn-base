@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Emmy
+ * Date: 11/26/12
+ * Time: 1:22 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class Recommender {
+
+    String[] TEST_DATA = new String[10];
+    List<Item> ItemsInDatabase = new ArrayList<Item>();
+
+    public void main(){
+
+    }
+
+    private void populateTestData(){
+        // start comparing to next at test data[3]. in other words, learnt from
+        // 4
+        TEST_DATA[0] = "9-08-12:Sat,Canned Soup,Chicken Stock,Vegetable Stock,Beef Stock,Pasta,Onions,White Mushrooms,Milk,Yoghurt,";
+        TEST_DATA[1] = "9-14-12:Sun,Instant Ramen,Vegetable Oil,Canned Soup,Onions,Acorn Squash,Pasta,Green Onions,Celery,Carrots,Basil,Oyster Sauce,Tofu,Chilli Bean Paste,Black Bean Paste,Rice Wine,Soy Sauce,Noodles,Rice,Daikon,Ginger,Galangal,Pumpkin,Shitaki Mushrooms,";
+        TEST_DATA[2] = "9-23-12:Sun,Pasta Sauce,Eggs,Curry,Eggs";
+        TEST_DATA[3] = "9-28-12:Fri,Ground Beef,Plum Tomatoes,Carrots,Milk,Carrots,Cheese,Tofu,Yoghurt,Beef Consomme,Mushroom Soup";
+        TEST_DATA[4] = "9-29-12:Sat,Onions,Carrots,Mushrooms,Stew Pork,Instant Ramen,Tomatoes,Chicken Breasts,Ketchup,Apple Sauce,Canned Soup,Canned Tomato,Cheese,Steak,Ground Turkey,Celery,Tofu,Grapefruit,Spinach,Ice Cream,Cream cheese,White Mushrooms";
+        TEST_DATA[5] = "10-04-12:Thu,Pasta Sauce,Eggs";
+        TEST_DATA[6] = "10-13-12:Sat,Pork Neck,Chicken Drumsticks,Onions,Beef Bones,Stew Beef,Pork Feet,Jelly,Garlic,Rice,Green Onion,White Mushrooms,Celery,";
+        TEST_DATA[7] = "10-22-12:Mon,Instant Mac and Cheese,Canned Soup,Instant Ramen,Mushroom Soup";
+        TEST_DATA[8] = "11-04-12:Sun,Pork Hock,Stew Beef,Beef Brisket,Tsuyu,Wasabi,Tofu,Udon,Black Vinegar,Oyster Sauce,Jelly,Black Sesame oil,Noodles,Onions,Carrot,Green Onions,Enoki Mushrooms,XO Sauce,Seaweed,Pasta,Creme Fraiche,Yoghurt,Artichoke,Mascarpone,Butternut Squash,Cider";
+        TEST_DATA[9] = "11-11-12:Sun,Pasta Sauce,Eggs";
+        TEST_DATA[10] = "11-16-12:Fri,Pasta Sauce,Eggs";
+        TEST_DATA[11] = "11-24-12:Sat,Pasta Sauce,Eggs";
+
+    }
+}
+
+
